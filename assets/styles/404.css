@@ -1,0 +1,123 @@
+*
+{
+    -ms-high-contrast-adjust: none;
+}
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background: rgb(1, 36, 86);
+    font-family: Consolas, Menlo, 'Courier New', Courier, monospace, "DengXian", "PingFang SC";
+    color: rgb(255, 255, 255);
+    height: 100vh;
+    overflow: hidden;
+}
+body *
+{
+    font-family: inherit;
+}
+pre
+{
+    margin: 0px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: -pre;
+    white-space: -moz-pre;
+    white-space: -o-pre;
+    white-space: pre;
+}
+.console
+{
+    margin: 0px;
+    font-size: 1.5em;
+}
+@media screen and (min-width: 800px)
+{
+    .console
+    {
+        font-size: 2em;
+    }
+}
+.prompt
+{
+    color: rgb(255, 255, 255);
+}
+.cmdlet
+{
+    color: rgb(255, 255, 0);
+}
+.string-literal
+{
+    color: rgb(0, 128, 128);
+}
+.ellipsis
+{
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.error
+{
+    color: rgb(255, 0, 0);
+    background: rgb(0, 0, 0);
+}
+.indent
+{
+    float: left;
+    height: 6400px;
+}
+footer
+{
+    position: fixed;
+    vertical-align: bottom;
+    bottom: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    -ms-high-contrast-adjust: auto;
+}
+footer>*
+{
+    -ms-high-contrast-adjust: auto;
+}
+.go-home
+{
+    display: inline-block;
+    text-decoration: none;
+    color: transparent;
+}
+.go-home:visited
+{
+    color: transparent;
+}
+.go-home-hc
+{
+    display: none;
+    border-style: solid;
+    border-width: 1px;
+    text-decoration: none;
+    margin: 10px;
+    padding: 20px;
+}
+@media screen and (-ms-high-contrast: active)
+{
+    .go-home
+    {
+        display: none;
+    }
+    .go-home-hc
+    {
+        display: inline-block;
+    }
+    .go-home-hc:hover
+    {
+        text-decoration: underline;
+    }
+    footer
+    {
+        border-width: 2px 0px 0px 0px;
+        border-style: solid;
+    }
+}

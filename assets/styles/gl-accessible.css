@@ -17,7 +17,8 @@
 /* use onresize event of an iframe of this class to detect high-contrast changes. */
 .gl-accessibility-helper-iframe
 {
-    display: fixed;
+    position: fixed;
+    vertical-align: bottom;
     bottom: -100px;
     right: -100px;
     border-style: none;
