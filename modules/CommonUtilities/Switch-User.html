@@ -1,0 +1,38 @@
+ <html><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/styles/github-markdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-float.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-accessible.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-frame.css" rel="stylesheet" type="text/css">
+<title>Switch-User</title></head>
+<body>
+    <header class="gl-navbar">
+    <a href=".">CommonUtilities</a><a href="https://github.com/GeeLaw/psguy.me/modules/CommonUtilities" target="_blank">Repository</a></header>
+    <div class="gl-contentview">
+        <article class="markdown-body" id="content">
+            <div>
+                <h1>
+Switch-User</h1>
+
+<p>When invoked from a usual session, the cmdlet tries to run <code>PowerShell.exe</code> as administrator and preserve the current working directory. If the invocation is successful, the calling window is hidden. When the elevated prompt exits, the calling window restores its state, providing a seamless experience of elevation.</p>
+
+<p>You can also supply <code>Credential</code> parameter to run PowerShell as another user.</p>
+
+<p>When invoked from an elevated prompt, the cmdlet asks for a credential to start PowerShell as unless you have specified <code>Crendetial</code> parameter.</p>
+
+<p><strong>IMPORTANT</strong> This cmdlet should only be invoked from Windows PowerShell.</p>
+
+            </div>
+        </article>
+        <footer class="markdown-body">
+            <p>Copyright © 2016 by Gee Law. All rights reserved.</p>
+        </footer>
+        <iframe class="gl-accessibility-helper-iframe">
+        </iframe>
+    </div>
+    <script src="/assets/scripts/gl-frame.js" type="text/javascript"></script>
+
+
+</body></html> 

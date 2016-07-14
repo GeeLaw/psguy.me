@@ -1,0 +1,124 @@
+ <html><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/styles/github-markdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-float.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-accessible.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-frame.css" rel="stylesheet" type="text/css">
+<title>CommonAliases</title></head>
+<body>
+    <header class="gl-navbar">
+    <a href="/modules">Modules</a><a href="https://github.com/GeeLaw/psguy.me/modules/CommonAliases" target="_blank">Repository</a></header>
+    <div class="gl-contentview">
+        <article class="markdown-body" id="content">
+            <div>
+                <h1>
+CommonAliases</h1>
+
+<h2>
+License</h2>
+
+<p>This module is published under <a href="license.html">MIT License</a>.</p>
+
+<h2>
+Get</h2>
+
+<p>To install this module for all users, use the following script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c">#Requires -RunAsAdministrator</span>
+<span class="pl-c1">Install-Module</span> <span class="pl-k">-</span>Name CommonAliases <span class="pl-k">-</span>Scope AllUsers<span class="pl-k">;</span></pre></div>
+
+<p>To install this module for the current user, use the following script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Install-Module</span> <span class="pl-k">-</span>Name CommonAliases <span class="pl-k">-</span>Scope CurrentUser<span class="pl-k">;</span></pre></div>
+
+<h2>
+Aliases</h2>
+
+<p>This module exports several common alises to make PowerShell easier to use.</p>
+
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new</code></td>
+<td><code>New-Object</code></td>
+</tr>
+<tr>
+<td><code>clip</code></td>
+<td><code>Set-Clipboard</code></td>
+</tr>
+<tr>
+<td><code>paste</code></td>
+<td><code>Get-Clipboard</code></td>
+</tr>
+<tr>
+<td><code>poke</code></td>
+<td><code>Invoke-WebRequest</code></td>
+</tr>
+<tr>
+<td><code>2json</code></td>
+<td><code>ConvertTo-Json</code></td>
+</tr>
+<tr>
+<td><code>json2</code></td>
+<td><code>ConvertFrom-Json</code></td>
+</tr>
+<tr>
+<td><code>2csv</code></td>
+<td><code>ConvertTo-Csv</code></td>
+</tr>
+<tr>
+<td><code>csv2</code></td>
+<td><code>ConvertFrom-Csv</code></td>
+</tr>
+<tr>
+<td><code>2html</code></td>
+<td><code>ConvertTo-Html</code></td>
+</tr>
+<tr>
+<td><code>ping</code></td>
+<td><code>Test-Connection</code></td>
+</tr>
+<tr>
+<td><code>find</code></td>
+<td><code>Select-String</code></td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td><code>Select-String</code></td>
+</tr>
+<tr>
+<td><code>tasklist</code></td>
+<td><code>Get-Process</code></td>
+</tr>
+<tr>
+<td><code>taskkill</code></td>
+<td><code>Stop-Process</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+Function</h2>
+
+<p>Invoke <code>Use-CommonAliases</code> to import the module. Since you invoke a function inside the module, the whole module is imported. Usually invoking an alias also does the same thing, e.g., invoking <code>new</code> imports the module. But if you try to invoke <code>ping</code>, PowerShell chooses <code>ping.exe</code> instead of the alias that is not yet imported. However, once imported, PowerShell favours <code>ping =&gt; Test-Connection</code> and you have to use <code>ping.exe</code> to explicitly use the command-line executable.</p>
+
+            </div>
+        </article>
+        <footer class="markdown-body">
+            <p>Copyright © 2016 by Gee Law. All rights reserved.</p>
+        </footer>
+        <iframe class="gl-accessibility-helper-iframe">
+        </iframe>
+    </div>
+    <script src="/assets/scripts/gl-frame.js" type="text/javascript"></script>
+
+
+</body></html> 

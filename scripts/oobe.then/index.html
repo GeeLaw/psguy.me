@@ -1,0 +1,109 @@
+ <html><head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/styles/github-markdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-float.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-accessible.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-frame.css" rel="stylesheet" type="text/css">
+<title>oobe.then</title></head>
+<body>
+    <header class="gl-navbar">
+    <a href="/scripts">Scripts</a><a href="https://github.com/GeeLaw/psguy.me/scripts/oobe.then" target="_blank">Repository</a></header>
+    <div class="gl-contentview">
+        <article class="markdown-body" id="content">
+            <div>
+                <h1>
+oobe.then</h1>
+
+<figure class="gl-float-right" style="margin: 0px;"><img class="gl-accessible-high-contrast-forbidden" src="assets/high-contrast-forbidden/icon.png" style="zoom: 80%;"><img class="gl-accessible-high-contrast-fallback" src="assets/high-contrast-fallback/icon.png" style="zoom: 80%;"><img class="gl-accessible-high-contrast-black-on-white" src="assets/high-contrast-black-on-white/icon.png" style="zoom: 80%;"><img class="gl-accessible-high-contrast-white-on-black" src="assets/high-contrast-white-on-black/icon.png" style="zoom: 80%;"></figure>
+
+<h2>
+License</h2>
+
+<p>This script is published under <a href="license.html">MIT License</a>.</p>
+
+<h2>
+Naming</h2>
+
+<p>This name comes from the popular continuation passing style of asynchronous programming. The first setup step of Windows is called OOBE (Out-Of-Box Experience) and this script is usually run right after OOBE is done.</p>
+
+<h2>
+Notice</h2>
+
+<p>You should configure the script especially if any of the following is true:</p>
+
+<ul>
+<li>You are not in China;</li>
+<li>You like Windows Store version (universal Windows app) of OneNote;</li>
+<li>You use Xbox app or Bing News / Sports / Finance;</li>
+<li>You play the game Microsoft Solitare Collection.</li>
+</ul>
+
+<h2>
+Function</h2>
+
+<p>The script:</p>
+
+<ol>
+<li>Updates the help content for PowerShell;</li>
+<li>Disbles the background image (Windows 10 hero image) on Welcome Screen;</li>
+<li>Removes the appx packages (provisioned and installed) defined in <code>useless-packages.txt</code>;</li>
+<li>Appends the <code>hosts</code> file with effective content defined in <code>add-hosts.txt</code>.</li>
+</ol>
+
+<h2>
+Configurability</h2>
+
+<p>The four functions are all configurable.</p>
+
+<h3>
+Updating the help content</h3>
+
+<p>To prevent this from running, set <code>$doNotUpdateHelp</code> to <code>$True</code>. You can do this either by adding the following code at the beginning of the script or running the line before invoking the script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-k">$</span><span class="pl-smi">doNotUpdateHelp</span> <span class="pl-k">=</span> <span class="pl-k">$</span><span class="pl-c1">True</span></pre></div>
+
+<h3>
+Disabling logon background image</h3>
+
+<p>To prevent this from running, set <code>$doNotDisableLogonBackground</code> to <code>$True</code>. You can do this either by adding the following code at the beginning of the script or running the line before invoking the script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-k">$</span><span class="pl-smi">doNotDisableLogonBackground</span> <span class="pl-k">=</span> <span class="pl-k">$</span><span class="pl-c1">True</span></pre></div>
+
+<h3>
+Removing selected appx packages</h3>
+
+<p><strong>WARNING</strong> Once removed, the packages will be hard to recover, since they're completely removed from the online image (i.e., your running copy of Windows). Some packages cannot be installed from Windows Store, e.g., <code>Microsoft.WindowsStore</code> package (Windows Store itself). Be careful when removing packages. The preset file configures the script to remove packages that are usually useless and most of them either provide no actual functionality or are reinstallable from Windows Store.</p>
+
+<p>To prevent this from running, set <code>$doNotRemovePackages</code> to <code>$True</code>. You can do this either by adding the following code at the beginning of the script or running the line before invoking the script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-k">$</span><span class="pl-smi">doNotRemovePackages</span> <span class="pl-k">=</span> <span class="pl-k">$</span><span class="pl-c1">True</span></pre></div>
+
+<p>To change the list of appx packages to remove, edit <code>useless-packages.txt</code>. The text file should contain the names of all packages you want to remove. See the preset file for an example.</p>
+
+<h3>
+Appending hosts</h3>
+
+<p><strong>WARNING</strong> You should configure this if you are not in China.</p>
+
+<p>To prevent this from running, set <code>$doNotEditHosts</code> to <code>$True</code>. You can do this either by adding the following code at the beginning of the script or running the line before invoking the script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-k">$</span><span class="pl-smi">doNotEditHosts</span> <span class="pl-k">=</span> <span class="pl-k">$</span><span class="pl-c1">True</span></pre></div>
+
+<p>To change the content appended to the <code>hosts</code> file, edit <code>add-hosts.txt</code>. The preset file defines the DNS resolution for OneDrive, which is useful in China to workaround the Great Fire Wall.</p>
+
+<p>The script will backup the hosts file before this change. The backup file name is <code>hosts.old.[some GUID].utc-ts-yyyy-MM-dd-HH-mm-ss</code>, where <code>[some GUID]</code> is a globally unique identifier and <code>yyyy-MM-dd-HH-mm-ss</code> is the universal coordinate time when the backup happened. You can find the backup in the <code>[Windows folder]\System32\drivers\etc</code> folder and its name in the comments of the edited <code>hosts</code> file.</p>
+
+            </div>
+        </article>
+        <footer class="markdown-body">
+            <p>Copyright © 2016 by Gee Law. All rights reserved.</p>
+        </footer>
+        <iframe class="gl-accessibility-helper-iframe">
+        </iframe>
+    </div>
+    <script src="/assets/scripts/gl-frame.js" type="text/javascript"></script>
+
+
+</body></html> 

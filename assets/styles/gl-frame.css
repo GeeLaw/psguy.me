@@ -1,0 +1,71 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    overflow: hidden;
+}
+.gl-navbar
+{
+    margin: 0px;
+    padding: 0px 60px 0px 60px;
+    width: 100vw;
+    z-index: 65535;
+    box-sizing: border-box;
+    background: rgb(0, 114, 198);
+    text-align: right;
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, freesans, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji";
+}
+.gl-navbar a
+{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px;
+    padding: 20px 25px;
+}
+.gl-navbar a:hover
+{
+    background: rgba(0, 0, 0, .3);
+}
+.gl-navbar a:visited
+{
+    color: white;
+}
+.gl-contentview
+{
+    margin: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0px 60px 0px 60px;
+}
+footer
+{
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px 0px 40px 0px;
+}
+footer>*
+{
+    margin: 10px 10px 0px 10px;
+}
+@media screen and (-ms-high-contrast: active)
+{
+    .gl-navbar
+    {
+        border-style: solid;
+        border-width: 0px 0px 2px 0px;
+    }
+    .gl-navbar>a
+    {
+        margin: 10px 0px 10px 10px;
+        padding: 10px;
+        border-style: solid;
+        border-width: 1px;
+    }
+    .gl-navbar>a:hover
+    {
+        text-decoration: underline;
+    }
+}

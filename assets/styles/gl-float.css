@@ -1,0 +1,19 @@
+.gl-float-always-left
+{
+    float: left;
+}
+.gl-float-always-right
+{
+    float: right;
+}
+@media screen and (min-width: 700px)
+{
+    .gl-float-left
+    {
+        float: left;
+    }
+    .gl-float-right
+    {
+        float: right;
+    }
+}
