@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="IE_RM_OFF" content="true" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="/assets/styles/404.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="console">
+            <pre><code><span class="prompt">PS C:\></span> <span class="cmdlet">Invoke-WebRequest</span> <span class="iwr-uri string-literal"></span>
+<div class="error">Invoke-WebRequest: Not Found
+HTTP Error 404. The requested resource is not found.
+At line:1 char:1
+<span class="ellipsis">+ Invoke-WebRequest <span class="iwr-uri"></span></span>
+<span class="ellipsis">+ ~~~~~~~~~~~~~~~~~~<span class="iwr-uri" data-gl-underline="~"></span></span>
+<span><div class="indent">   </div><span> + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+ + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand</span></span></div>
+ </code></pre>
+        </div>
+        <footer>
+            <a class="go-home" href="/"><img src="/assets/images/home.png" style="zoom: 25%;"/></a>
+            <a class="go-home-hc" href="/">Go to psguy.me</a>
+        </footer>
+        <script type="text/javascript">
+            (function ()
+            {
+                var uri = window.location.href;
+                if (uri.indexOf("'") >= 0)
+                {
+                    uri = '"' + uri.replace(/`/g, '``').replace(/"/g, '`"').replace(/\r/g, '`r').replace(/\n/g, '`n').replace(/\t/g, '`t').replace(/\v/g, '`v') + '"';
+                }
+                else
+                {
+                    uri = "'" + uri + "'";
+                }
+                var urilines = uri.match(/.*/g)[0].replace(/./g, '~');
+                var uris = document.getElementsByClassName('iwr-uri');
+                for (var i = 0; i < uris.length; ++i)
+                    if (uris[i].getAttribute('data-gl-underline') == '~')
+                        uris[i].innerText = urilines;
+                    else
+                        uris[i].innerText = uri;
+            })();
+        </script>
+    </body>
+</html>
