@@ -1,0 +1,109 @@
+.gl-accessible-high-contrast-fallback
+{
+    display: none;
+}
+.gl-accessible-high-contrast-active
+{
+    display: none;
+}
+.gl-accessible-high-contrast-black-on-white
+{
+    display: none;
+}
+.gl-accessible-high-contrast-white-on-black
+{
+    display: none;
+}
+@media screen and (-ms-high-contrast: active)
+{
+    .gl-accessible-high-contrast-forbidden
+    {
+        display: none;
+    }
+    b.gl-accessible-high-contrast-fallback, big.gl-accessible-high-contrast-fallback, i.gl-accessible-high-contrast-fallback, small.gl-accessible-high-contrast-fallback, tt.gl-accessible-high-contrast-fallback, abbr.gl-accessible-high-contrast-fallback, acronym.gl-accessible-high-contrast-fallback, cite.gl-accessible-high-contrast-fallback, code.gl-accessible-high-contrast-fallback, dfn.gl-accessible-high-contrast-fallback, em.gl-accessible-high-contrast-fallback, kbd.gl-accessible-high-contrast-fallback, strong.gl-accessible-high-contrast-fallback, samp.gl-accessible-high-contrast-fallback, time.gl-accessible-high-contrast-fallback, var.gl-accessible-high-contrast-fallback, a.gl-accessible-high-contrast-fallback, bdo.gl-accessible-high-contrast-fallback, br.gl-accessible-high-contrast-fallback, img.gl-accessible-high-contrast-fallback, map.gl-accessible-high-contrast-fallback, object.gl-accessible-high-contrast-fallback, q.gl-accessible-high-contrast-fallback, script.gl-accessible-high-contrast-fallback, span.gl-accessible-high-contrast-fallback, sub.gl-accessible-high-contrast-fallback, sup.gl-accessible-high-contrast-fallback, button.gl-accessible-high-contrast-fallback, input.gl-accessible-high-contrast-fallback, label.gl-accessible-high-contrast-fallback, select.gl-accessible-high-contrast-fallback, textarea.gl-accessible-high-contrast-fallback
+    {
+        display: inline;
+        display: unset;
+    }
+    address.gl-accessible-high-contrast-fallback, article.gl-accessible-high-contrast-fallback, aside.gl-accessible-high-contrast-fallback, blockquote.gl-accessible-high-contrast-fallback, canvas.gl-accessible-high-contrast-fallback, dd.gl-accessible-high-contrast-fallback, div.gl-accessible-high-contrast-fallback, dl.gl-accessible-high-contrast-fallback, fieldset.gl-accessible-high-contrast-fallback, figcaption.gl-accessible-high-contrast-fallback, figure.gl-accessible-high-contrast-fallback, footer.gl-accessible-high-contrast-fallback, form.gl-accessible-high-contrast-fallback, h1.gl-accessible-high-contrast-fallback, h2.gl-accessible-high-contrast-fallback, h3.gl-accessible-high-contrast-fallback, h4.gl-accessible-high-contrast-fallback, h5.gl-accessible-high-contrast-fallback, h6.gl-accessible-high-contrast-fallback, header.gl-accessible-high-contrast-fallback, hgroup.gl-accessible-high-contrast-fallback, hr.gl-accessible-high-contrast-fallback, li.gl-accessible-high-contrast-fallback, main.gl-accessible-high-contrast-fallback, nav.gl-accessible-high-contrast-fallback, noscript.gl-accessible-high-contrast-fallback, ol.gl-accessible-high-contrast-fallback, output.gl-accessible-high-contrast-fallback, p.gl-accessible-high-contrast-fallback, pre.gl-accessible-high-contrast-fallback, section.gl-accessible-high-contrast-fallback, table.gl-accessible-high-contrast-fallback, tfoot.gl-accessible-high-contrast-fallback, ul.gl-accessible-high-contrast-fallback, video.gl-accessible-high-contrast-fallback
+    {
+        display: block;
+        display: unset;
+    }
+    .gl-accessible-high-contrast-fallback
+    {
+        display: inherit;
+        display: initial;
+        display: unset;
+    }
+    b.gl-accessible-high-contrast-active, big.gl-accessible-high-contrast-active, i.gl-accessible-high-contrast-active, small.gl-accessible-high-contrast-active, tt.gl-accessible-high-contrast-active, abbr.gl-accessible-high-contrast-active, acronym.gl-accessible-high-contrast-active, cite.gl-accessible-high-contrast-active, code.gl-accessible-high-contrast-active, dfn.gl-accessible-high-contrast-active, em.gl-accessible-high-contrast-active, kbd.gl-accessible-high-contrast-active, strong.gl-accessible-high-contrast-active, samp.gl-accessible-high-contrast-active, time.gl-accessible-high-contrast-active, var.gl-accessible-high-contrast-active, a.gl-accessible-high-contrast-active, bdo.gl-accessible-high-contrast-active, br.gl-accessible-high-contrast-active, img.gl-accessible-high-contrast-active, map.gl-accessible-high-contrast-active, object.gl-accessible-high-contrast-active, q.gl-accessible-high-contrast-active, script.gl-accessible-high-contrast-active, span.gl-accessible-high-contrast-active, sub.gl-accessible-high-contrast-active, sup.gl-accessible-high-contrast-active, button.gl-accessible-high-contrast-active, input.gl-accessible-high-contrast-active, label.gl-accessible-high-contrast-active, select.gl-accessible-high-contrast-active, textarea.gl-accessible-high-contrast-active
+    {
+        display: inline;
+        display: unset;
+    }
+    address.gl-accessible-high-contrast-active, article.gl-accessible-high-contrast-active, aside.gl-accessible-high-contrast-active, blockquote.gl-accessible-high-contrast-active, canvas.gl-accessible-high-contrast-active, dd.gl-accessible-high-contrast-active, div.gl-accessible-high-contrast-active, dl.gl-accessible-high-contrast-active, fieldset.gl-accessible-high-contrast-active, figcaption.gl-accessible-high-contrast-active, figure.gl-accessible-high-contrast-active, footer.gl-accessible-high-contrast-active, form.gl-accessible-high-contrast-active, h1.gl-accessible-high-contrast-active, h2.gl-accessible-high-contrast-active, h3.gl-accessible-high-contrast-active, h4.gl-accessible-high-contrast-active, h5.gl-accessible-high-contrast-active, h6.gl-accessible-high-contrast-active, header.gl-accessible-high-contrast-active, hgroup.gl-accessible-high-contrast-active, hr.gl-accessible-high-contrast-active, li.gl-accessible-high-contrast-active, main.gl-accessible-high-contrast-active, nav.gl-accessible-high-contrast-active, noscript.gl-accessible-high-contrast-active, ol.gl-accessible-high-contrast-active, output.gl-accessible-high-contrast-active, p.gl-accessible-high-contrast-active, pre.gl-accessible-high-contrast-active, section.gl-accessible-high-contrast-active, table.gl-accessible-high-contrast-active, tfoot.gl-accessible-high-contrast-active, ul.gl-accessible-high-contrast-active, video.gl-accessible-high-contrast-active
+    {
+        display: block;
+        display: unset;
+    }
+    .gl-accessible-high-contrast-active
+    {
+        display: inherit;
+        display: initial;
+        display: unset;
+    }
+}
+@media screen and (-ms-high-contrast: white-on-black)
+{
+    .gl-accessible-high-contrast-forbidden
+    {
+        display: none;
+    }
+    .gl-accessible-high-contrast-fallback
+    {
+        display: none !important;
+    }
+    b.gl-accessible-high-contrast-white-on-black, big.gl-accessible-high-contrast-white-on-black, i.gl-accessible-high-contrast-white-on-black, small.gl-accessible-high-contrast-white-on-black, tt.gl-accessible-high-contrast-white-on-black, abbr.gl-accessible-high-contrast-white-on-black, acronym.gl-accessible-high-contrast-white-on-black, cite.gl-accessible-high-contrast-white-on-black, code.gl-accessible-high-contrast-white-on-black, dfn.gl-accessible-high-contrast-white-on-black, em.gl-accessible-high-contrast-white-on-black, kbd.gl-accessible-high-contrast-white-on-black, strong.gl-accessible-high-contrast-white-on-black, samp.gl-accessible-high-contrast-white-on-black, time.gl-accessible-high-contrast-white-on-black, var.gl-accessible-high-contrast-white-on-black, a.gl-accessible-high-contrast-white-on-black, bdo.gl-accessible-high-contrast-white-on-black, br.gl-accessible-high-contrast-white-on-black, img.gl-accessible-high-contrast-white-on-black, map.gl-accessible-high-contrast-white-on-black, object.gl-accessible-high-contrast-white-on-black, q.gl-accessible-high-contrast-white-on-black, script.gl-accessible-high-contrast-white-on-black, span.gl-accessible-high-contrast-white-on-black, sub.gl-accessible-high-contrast-white-on-black, sup.gl-accessible-high-contrast-white-on-black, button.gl-accessible-high-contrast-white-on-black, input.gl-accessible-high-contrast-white-on-black, label.gl-accessible-high-contrast-white-on-black, select.gl-accessible-high-contrast-white-on-black, textarea.gl-accessible-high-contrast-white-on-black
+    {
+        display: inline;
+        display: unset;
+    }
+    address.gl-accessible-high-contrast-white-on-black, article.gl-accessible-high-contrast-white-on-black, aside.gl-accessible-high-contrast-white-on-black, blockquote.gl-accessible-high-contrast-white-on-black, canvas.gl-accessible-high-contrast-white-on-black, dd.gl-accessible-high-contrast-white-on-black, div.gl-accessible-high-contrast-white-on-black, dl.gl-accessible-high-contrast-white-on-black, fieldset.gl-accessible-high-contrast-white-on-black, figcaption.gl-accessible-high-contrast-white-on-black, figure.gl-accessible-high-contrast-white-on-black, footer.gl-accessible-high-contrast-white-on-black, form.gl-accessible-high-contrast-white-on-black, h1.gl-accessible-high-contrast-white-on-black, h2.gl-accessible-high-contrast-white-on-black, h3.gl-accessible-high-contrast-white-on-black, h4.gl-accessible-high-contrast-white-on-black, h5.gl-accessible-high-contrast-white-on-black, h6.gl-accessible-high-contrast-white-on-black, header.gl-accessible-high-contrast-white-on-black, hgroup.gl-accessible-high-contrast-white-on-black, hr.gl-accessible-high-contrast-white-on-black, li.gl-accessible-high-contrast-white-on-black, main.gl-accessible-high-contrast-white-on-black, nav.gl-accessible-high-contrast-white-on-black, noscript.gl-accessible-high-contrast-white-on-black, ol.gl-accessible-high-contrast-white-on-black, output.gl-accessible-high-contrast-white-on-black, p.gl-accessible-high-contrast-white-on-black, pre.gl-accessible-high-contrast-white-on-black, section.gl-accessible-high-contrast-white-on-black, table.gl-accessible-high-contrast-white-on-black, tfoot.gl-accessible-high-contrast-white-on-black, ul.gl-accessible-high-contrast-white-on-black, video.gl-accessible-high-contrast-white-on-black
+    {
+        display: block;
+        display: unset;
+    }
+    .gl-accessible-high-contrast-white-on-black
+    {
+        display: inherit;
+        display: initial;
+        display: unset;
+    }
+}
+@media screen and (-ms-high-contrast: black-on-white)
+{
+    .gl-accessible-high-contrast-forbidden
+    {
+        display: none;
+    }
+    .gl-accessible-high-contrast-fallback
+    {
+        display: none !important;
+    }
+    b.gl-accessible-high-contrast-black-on-white, big.gl-accessible-high-contrast-black-on-white, i.gl-accessible-high-contrast-black-on-white, small.gl-accessible-high-contrast-black-on-white, tt.gl-accessible-high-contrast-black-on-white, abbr.gl-accessible-high-contrast-black-on-white, acronym.gl-accessible-high-contrast-black-on-white, cite.gl-accessible-high-contrast-black-on-white, code.gl-accessible-high-contrast-black-on-white, dfn.gl-accessible-high-contrast-black-on-white, em.gl-accessible-high-contrast-black-on-white, kbd.gl-accessible-high-contrast-black-on-white, strong.gl-accessible-high-contrast-black-on-white, samp.gl-accessible-high-contrast-black-on-white, time.gl-accessible-high-contrast-black-on-white, var.gl-accessible-high-contrast-black-on-white, a.gl-accessible-high-contrast-black-on-white, bdo.gl-accessible-high-contrast-black-on-white, br.gl-accessible-high-contrast-black-on-white, img.gl-accessible-high-contrast-black-on-white, map.gl-accessible-high-contrast-black-on-white, object.gl-accessible-high-contrast-black-on-white, q.gl-accessible-high-contrast-black-on-white, script.gl-accessible-high-contrast-black-on-white, span.gl-accessible-high-contrast-black-on-white, sub.gl-accessible-high-contrast-black-on-white, sup.gl-accessible-high-contrast-black-on-white, button.gl-accessible-high-contrast-black-on-white, input.gl-accessible-high-contrast-black-on-white, label.gl-accessible-high-contrast-black-on-white, select.gl-accessible-high-contrast-black-on-white, textarea.gl-accessible-high-contrast-black-on-white
+    {
+        display: inline;
+        display: unset;
+    }
+    address.gl-accessible-high-contrast-black-on-white, article.gl-accessible-high-contrast-black-on-white, aside.gl-accessible-high-contrast-black-on-white, blockquote.gl-accessible-high-contrast-black-on-white, canvas.gl-accessible-high-contrast-black-on-white, dd.gl-accessible-high-contrast-black-on-white, div.gl-accessible-high-contrast-black-on-white, dl.gl-accessible-high-contrast-black-on-white, fieldset.gl-accessible-high-contrast-black-on-white, figcaption.gl-accessible-high-contrast-black-on-white, figure.gl-accessible-high-contrast-black-on-white, footer.gl-accessible-high-contrast-black-on-white, form.gl-accessible-high-contrast-black-on-white, h1.gl-accessible-high-contrast-black-on-white, h2.gl-accessible-high-contrast-black-on-white, h3.gl-accessible-high-contrast-black-on-white, h4.gl-accessible-high-contrast-black-on-white, h5.gl-accessible-high-contrast-black-on-white, h6.gl-accessible-high-contrast-black-on-white, header.gl-accessible-high-contrast-black-on-white, hgroup.gl-accessible-high-contrast-black-on-white, hr.gl-accessible-high-contrast-black-on-white, li.gl-accessible-high-contrast-black-on-white, main.gl-accessible-high-contrast-black-on-white, nav.gl-accessible-high-contrast-black-on-white, noscript.gl-accessible-high-contrast-black-on-white, ol.gl-accessible-high-contrast-black-on-white, output.gl-accessible-high-contrast-black-on-white, p.gl-accessible-high-contrast-black-on-white, pre.gl-accessible-high-contrast-black-on-white, section.gl-accessible-high-contrast-black-on-white, table.gl-accessible-high-contrast-black-on-white, tfoot.gl-accessible-high-contrast-black-on-white, ul.gl-accessible-high-contrast-black-on-white, video.gl-accessible-high-contrast-black-on-white
+    {
+        display: block;
+        display: unset;
+    }
+    .gl-accessible-high-contrast-black-on-white
+    {
+        display: inherit;
+        display: initial;
+        display: unset;
+    }
+}
