@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="Type=text/html; charset=utf-8">
+    <meta name="IE_RM_OFF" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/styles/github-markdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-float.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-accessible.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-frame.css" rel="stylesheet" type="text/css">
+<title>Build-Markdown</title></head>
+<body>
+    <header class="gl-navbar">
+    <a href="/modules">Modules</a><a href="https://github.com/GeeLaw/psguy.me/tree/master/modules/Build-Markdown" target="_blank">Repository</a></header>
+    <div class="gl-contentview">
+        <article class="markdown-body" id="content">
+            <div>
+                <h1>
+Build-Markdown</h1>
+
+<figure class="gl-float-right" style="margin: 0px;"><img src="assets/icon.png" style="zoom: 80%;"></figure>
+
+<p>A static site builder based on PowerShell and GitHub Markdown API.</p>
+
+<h2>
+License</h2>
+
+<p>This module is published under <a href="license.html">MIT License</a>.</p>
+
+<h2>
+Get</h2>
+
+<p>This module is NOT available through</p>
+
+<h2>
+Motive</h2>
+
+<p>I am personally not satisfied with any current static blogging tool therefore I decide to create my own, hoping it can be useful for others like any open-source software fanboy (开源软件拥趸), which is mostly false.</p>
+
+<p>Since I mainly work on Microsoft Windows. The software is going to be implemented in PowerShell scripting language. For now it provides an extensible Markdown compiler based on GitHub API.</p>
+
+<h2>
+Blogging system</h2>
+
+<p>A blog site can be built with this software with sources. The most important source is a database (in any form, JSON, XML or SQL Server) that provides metadata on blog entries. The database is mainly for query and RSS/homepage generation. Each time a new entry is added, or an entry is modified, the software should be run to update resulting static pages.</p>
+
+<h2>
+Extension syntax</h2>
+
+<p>The only difference between Build-Markdown style Markdown and usual GitHub-style Markdown is that it supports extensions to be added over time without breaking any existing functionality.</p>
+
+<p>The <strong>extension syntax</strong> provides extension functionality via code blocks.</p>
+
+<p>For any blog entry, the metadata of it contains a special field/column <code>ExtensionLanguage</code>. This is a string field/column and if it is <code>null</code>, it defaults to <code>"bssex"</code> (<strong>b</strong>uild-<strong>s</strong>tatic.<strong>s</strong>ite <strong>ex</strong>tension). This language is used as the extension language. To make use of an extension, use a code block of language <code>ExtensionLanguage</code> to do so.</p>
+
+<p>Different extensions have different syntaxes, but the first line of the code block must be the name of that extension and the following lines are sent to the extension for further analysis. For example:</p>
+
+<pre><code>```bssex
+Gee Law: image
+{
+    "source": "&lt;theme&gt;/some-image.png",
+    "zoom": 0.6,
+    "caption": "Lorem ipsum",
+    "click": true,
+    "accessible": true,
+    "placement": "left"
+}
+```
+</code></pre>
+
+<p>The code above should produce an image zoomed to 60%, floating on the left, with caption “Lorem ipsum” (when clicked, the user gets to the source of image) and substituted to the appropriate version under high contrast themes on Windows.</p>
+
+            </div>
+        </article>
+        <footer class="markdown-body">
+            <p>Copyright © 2016 by Gee Law. All rights reserved.</p>
+        </footer>
+    </div>
+    <iframe class="gl-accessibility-helper-iframe"></iframe>
+    <script src="/assets/scripts/gl-frame.js" type="text/javascript"></script></body></html>
