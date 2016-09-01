@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="Type=text/html; charset=utf-8">
+    <meta name="IE_RM_OFF" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/styles/github-markdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-float.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-accessible.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/gl-frame.css" rel="stylesheet" type="text/css">
+<title>Use-RawPipeline</title></head>
+<body>
+    <header class="gl-navbar">
+    <a href="/modules">Modules</a><a href="https://github.com/GeeLaw/psguy.me/tree/master/modules/Use-RawPipeline" target="_blank">Repository</a></header>
+    <div class="gl-contentview">
+        <article class="markdown-body" id="content">
+            <div>
+                <h1>
+Use-RawPipeline</h1>
+
+<p>This module provides better raw pipeline than PowerShell 5.</p>
+
+<h2>
+License</h2>
+
+<p>This module is published under <a href="license.html">MIT License</a>.</p>
+
+<h2>
+Get</h2>
+
+<p>To install this module for all users, use the following script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c">#Requires -RunAsAdministrator</span>
+<span class="pl-c1">Install-Module</span> <span class="pl-k">-</span>Name <span class="pl-c1">Use-RawPipeline</span> <span class="pl-k">-</span>Scope AllUsers<span class="pl-k">;</span></pre></div>
+
+<p>To install this module for the current user, use the following script:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Install-Module</span> <span class="pl-k">-</span>Name <span class="pl-c1">Use-RawPipeline</span> <span class="pl-k">-</span>Scope CurrentUser<span class="pl-k">;</span></pre></div>
+
+<h2>
+Motive</h2>
+
+<p>PowerShell, up to version 5, does not work well with native utilities. This is in the OO nature of PowerShell. When invoking a native utility, for example:</p>
+
+<div class="highlight highlight-source-powershell"><pre>git <span class="pl-c1">format-patch</span> HEAD~<span class="pl-c1"><span class="pl-c1">3</span></span></pre></div>
+
+<p>PowerShell converts the output of <code>git</code> command into a string (encoding guessed by PowerShell), then splits it by line and finally returns it as an <code>object[]</code>. This causes many problems, one of which is that the native utility pipe chain breaks because PowerShell uses UTF16LE as the default encoding and CRLF as the default line-ending character sequence. Since the output has been parsed as an object, PowerShell is unable to recover the encoding and the line-ending sequence, resulting in misformed content piped to the next command.</p>
+
+<p>For example, the following command will create a text file with UTF16LE encoding and CRLF line-ending sequence, making the <code>patch.patch</code> unusable by <code>git apply</code>:</p>
+
+<div class="highlight highlight-source-powershell"><pre>PS <span class="pl-k">&gt;</span> git <span class="pl-c1">format-patch</span> HEAD~<span class="pl-c1"><span class="pl-c1">3</span></span> <span class="pl-k">&gt;</span> patch.patch</pre></div>
+
+<p>However, a bash user expects the binary form of <code>stdout</code> of <code>git</code> to be written to <code>patch.patch</code>, as it is in the following scenario:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git format-patch HEAD~3 <span class="pl-k">&gt;</span> patch.patch</pre></div>
+
+<p>This module resolves this issue.</p>
+
+<h2>
+How does this work?</h2>
+
+<p>Easy. The raw pipeline uses temporary files to store intermediate streams.</p>
+
+<h2>
+<code>PSGuy.UseRawPipeline.RawPipelineObject</code> class</h2>
+
+<p>This class is used to hold a file, temporary or permanent.</p>
+
+<p>The class is not intended to be used by the user, instead, it is convertible from string (as a path), and generated and consumed by cmdlets in thie module.</p>
+
+<h2>
+<code>Use-RawPipeline</code> cmdlet</h2>
+
+<p>The cmdlet invokes a native utility with raw pipeline enabled. It outputs a <code>RawPipelineObject</code> if the <code>stdout</code> of the utility should be piped down. The alias of this cmdlet is <code>$</code>, inspired by bash.</p>
+
+<ul>
+<li>
+<code>[string]$Command</code>
+
+<ul>
+<li>
+<strong>Mandatory</strong>;</li>
+<li>Position 0;</li>
+<li>The native utility to be invoked.</li>
+</ul>
+</li>
+<li>
+<code>[string[]]$ArgumentList</code>
+
+<ul>
+<li>Optional, default to empty array;</li>
+<li>Remaining parameters;</li>
+<li>The command-line arguments for the native utility.</li>
+</ul>
+</li>
+<li>
+<code>[switch]$AllowNewWindow</code>
+
+<ul>
+<li>Optional;</li>
+<li>The negation of <code>NoNewWindow</code> for <code>Start-Process</code>;</li>
+</ul>
+</li>
+<li>
+<code>[RawPipelineObject]$RedirectStandardInput</code>
+
+<ul>
+<li>Optional;</li>
+<li>Value <strong>from pipeline</strong>;</li>
+<li>Alias: <code>stdin</code>;</li>
+<li>If omitted, the input comes from PowerShell host;</li>
+<li>The <code>stdin</code> stream for the native utility.</li>
+</ul>
+</li>
+<li>
+<code>[string]$RedirectStandardOutput</code>
+
+<ul>
+<li>Optional;</li>
+<li>Alias: <code>stdout</code>;</li>
+<li>If omitted, <code>stdout</code> of this utility goes down the pipe in its raw form;</li>
+<li>If provided, the standard output will go to the file and will, by default, not be passed down the pipe;</li>
+</ul>
+</li>
+<li>
+<code>[switch]$PassThru</code>
+
+<ul>
+<li>Optional;</li>
+<li>If on, the standard output will always go down the pipe regardless of redirection;</li>
+<li>You can tee the output by using <code>RedirectStandardOutput</code> and <code>PassThru</code>;</li>
+</ul>
+</li>
+<li>
+<code>[ScriptBlock]$StandardErrorHandler</code>
+
+<ul>
+<li>Optional;</li>
+<li>Alias: <code>stderr</code>;</li>
+<li>If omitted and if there is content in <code>stderr</code>, the <code>stderr</code> is <code>Written-Error</code>;</li>
+<li>For further documentation, see Appendix;</li>
+</ul>
+</li>
+<li>
+<code>[switch]$ForceStandardErrorHandler</code>
+
+<ul>
+<li>Optional;</li>
+<li>If off, the standard error handler (<code>StandardErrorHandler</code>) will not be called if the length of <code>stderr</code> stream is zero;</li>
+<li>If on, the standard error handler is always called regardless of the length of <code>stderr</code>;</li>
+<li>Default handler is silent when called with a zero-length <code>stderr</code>.</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<code>ConvertFrom-RawPipeline</code> cmdlet</h2>
+
+<p>The cmdlet converts <code>RawPipelineObject</code> obtained by, possibly a series of, invocations of <code>Use-RawPipeline</code>. It works like <code>Get-Content</code> and you can work with any encoding supported by <code>Get-Content</code>, which means <code>byte[]</code> included. The alias of this cmdlet is <code>~</code>.</p>
+
+<ul>
+<li>
+<code>[RawPipelineObject]$InputObject</code>
+
+<ul>
+<li>
+<strong>Mandatory</strong>;</li>
+<li>Value <strong>from pipeline</strong>;</li>
+<li>Aliases: <code>StandardInput</code>, <code>stdin</code>, <code>StandardOutput</code>, <code>stdout</code>;</li>
+<li>The raw pipeline object to be <code>Got-Content</code>;</li>
+</ul>
+</li>
+<li>
+<code>[string]$Delimiter</code>
+
+<ul>
+<li>Optional;</li>
+<li>Equivalent to <code>Delimiter</code> parameter of <code>Get-Content</code>;</li>
+</ul>
+</li>
+<li>
+<code>[string]$Encoding</code>
+
+<ul>
+<li>Optional;</li>
+<li>Equivalent to <code>Encoding</code> parameter of <code>Get-Content</code>;</li>
+</ul>
+</li>
+<li>
+<code>[switch]$Raw</code>
+
+<ul>
+<li>Optional;</li>
+<li>Equivalent to <code>Raw</code> switch of <code>Get-Content</code>;</li>
+</ul>
+</li>
+<li>
+<code>[switch]$Force</code>
+
+<ul>
+<li>Optional;</li>
+<li>Equivalent to <code>Force</code> switch of <code>Get-Content</code>.</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+Examples</h2>
+
+<p>To make the example in the motive work correctly, use the following commands:</p>
+
+<div class="highlight highlight-source-powershell"><pre>PS <span class="pl-k">&gt;</span> $ git <span class="pl-c1">format-patch</span> HEAD~<span class="pl-c1"><span class="pl-c1">3</span></span> <span class="pl-k">-</span>stdout patch.patch
+PS <span class="pl-k">&gt;</span> $ git <span class="pl-c1">format-patch</span> HEAD~<span class="pl-c1"><span class="pl-c1">3</span></span> <span class="pl-k">|</span> ~ <span class="pl-k">-</span>Encoding Byte <span class="pl-k">|</span>
+   <span class="pl-k">&gt;</span>     sc patch.patch <span class="pl-k">-</span>Encoding Byte</pre></div>
+
+<p>Say your Node.js script is a Markdown compiler and output HTML with Chinese characters, if the encoding guessed by PowerShell is perfectly wrong (which is often the case), then you get a holy crap of output by invoking <code>node build-blog.js</code>. Now, with <code>Use-RawPipeline</code>, you can avoid this. For this example, I would like to use the full names since I really do this in my blog building script.</p>
+
+<div class="highlight highlight-source-powershell"><pre>PS <span class="pl-k">&gt;</span> <span class="pl-k">$</span><span class="pl-smi">result</span> <span class="pl-k">=</span> <span class="pl-c1">Use-RawPipeline</span> <span class="pl-k">-</span>Command <span class="pl-s">'node'</span> <span class="pl-k">`</span>
+   <span class="pl-k">&gt;</span>     <span class="pl-k">-</span>ArgumentList <span class="pl-k">@(</span><span class="pl-s">'build-page.js'</span><span class="pl-k">,</span> <span class="pl-s">'entry.md'</span><span class="pl-k">)</span> <span class="pl-k">|</span>
+   <span class="pl-k">&gt;</span>     <span class="pl-c1">ConvertFrom-RawPipeline</span> <span class="pl-k">-</span>Encoding UTF8 <span class="pl-k">-</span>Raw<span class="pl-k">;</span>
+PS <span class="pl-k">&gt;</span> <span class="pl-c"># Imaginary cmdlet to further compile the blog entry.</span>
+PS <span class="pl-k">&gt;</span> <span class="pl-k">$</span><span class="pl-smi">result</span> <span class="pl-k">=</span> Replace<span class="pl-k">-</span>PlaceholdersInEntry <span class="pl-k">-</span>InputObject <span class="pl-k">$</span><span class="pl-smi">result</span><span class="pl-k">;</span>
+PS <span class="pl-k">&gt;</span> <span class="pl-c"># Save the entry in UTF8 without BOM.</span>
+PS <span class="pl-k">&gt;</span> <span class="pl-e">[System.IO.File]</span>::WriteAllText<span class="pl-k">(</span><span class="pl-k">$</span><span class="pl-smi">compiledEntryPath</span><span class="pl-k">,</span> <span class="pl-k">$</span><span class="pl-smi">result</span><span class="pl-k">)</span><span class="pl-k">;</span>
+PS <span class="pl-k">&gt;</span></pre></div>
+
+<h2>
+Appendix</h2>
+
+<h3>
+<code>StandardErrorHandler</code> script block</h3>
+
+<p>The script block will receive <code>$_</code> as the temporary file name of <code>stderr</code> stream. The file can be deleted after the invocation completes, therefore if you need the file, copy it to another place.</p>
+
+<p>The current implementaton is:</p>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c"># Default StandardErrorHandler.</span>
+<span class="pl-k">$</span><span class="pl-k">local</span>:<span class="pl-smi">stderrContent</span> <span class="pl-k">=</span> <span class="pl-c1">Get-Content</span> <span class="pl-k">-</span>LiteralPath <span class="pl-k">$</span><span class="pl-c1">_</span> <span class="pl-k">-</span>Raw<span class="pl-k">;</span>
+<span class="pl-k">If</span> <span class="pl-k">(</span><span class="pl-k">$</span><span class="pl-k">local</span>:<span class="pl-smi">stderrContent</span><span class="pl-en">.Length</span> <span class="pl-k">-ne</span> <span class="pl-c1"><span class="pl-c1">0</span></span><span class="pl-k">)</span>
+{
+    <span class="pl-c1">Write-Error</span> <span class="pl-k">-</span>Message <span class="pl-k">$</span><span class="pl-k">local</span>:<span class="pl-smi">stderrContent</span> <span class="pl-k">`</span>
+        <span class="pl-k">-</span>Category <span class="pl-k">(</span><span class="pl-e">[System.Management.Automation.ErrorCategory]</span>::FromStdErr<span class="pl-k">)</span><span class="pl-k">;</span>
+}</pre></div>
+
+            </div>
+        </article>
+        <footer class="markdown-body">
+            <p>Copyright © 2016 by Gee Law. All rights reserved.</p>
+        </footer>
+    </div>
+    <iframe class="gl-accessibility-helper-iframe"></iframe>
+    <script src="/assets/scripts/gl-frame.js" type="text/javascript"></script></body></html>
